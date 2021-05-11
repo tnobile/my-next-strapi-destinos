@@ -27,8 +27,8 @@ const PortfolioItem = ({ destino, categories }) => {
                     <div className="col-md-12">
                         <div className="portfolio-headline text-center m-2">
                             <h1>{destino.name}</h1>
-                            <h2>{destino.location.longitude}</h2>
-                            <h2>{destino.location.latitude}</h2>
+                            <h2>{destino.location[0].longitude}</h2>
+                            <h2>{destino.location[0].latitude}</h2>
                             <h2>{destino.duration}h</h2>
                         </div>
                         <div dangerouslySetInnerHTML={{ __html: destino.description }} />
