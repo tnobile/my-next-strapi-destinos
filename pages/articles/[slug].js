@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-import fetchFromCMS, { getApiUrl } from '../../lib/service';
+import fetchFromCMS, { getMedia } from '../../lib/service';
 import processMarkdown from '../../lib/processMarkdown';
 
 /** 
@@ -14,7 +14,7 @@ const PortfolioItem = ({ destino }) => {
                 <div className="portfolio-image text-center mb-4">
                     <div className="col-md-12">
                         <Image
-                            src={getApiUrl(destino.image.url)}
+                            src={getMedia(destino.image)}
                             width={destino.image.width}
                             height={destino.image.height}
                         />
@@ -36,7 +36,7 @@ const PortfolioItem = ({ destino }) => {
 };
 
 export async function getStaticPaths() {
-    const destinos = await fetchFromCMS('destinos');
+    const destinos = await fetchFromCMS('/destinos');
     return {
         paths: destinos.map(d => ({
             params: {
@@ -48,7 +48,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const destino = await fetchFromCMS(`destinos?slug=${params.slug}`);
+    const destino = await fetchFromCMS(`/destinos?slug=${params.slug}`);
     const content = await processMarkdown(destino[0]);
     return {
         props: { destino: { ...destino[0], content: content } },
