@@ -1,8 +1,8 @@
-import Navbar from "./Navbar";
+import Nav from "./Nav";
 
-const Layout = ({ children }) => (
+const Layout = ({ children, categories }) => (
     <dvi>
-        <Navbar />
+        <Nav categories={categories}/>
         <div className='main-container container'>
             {children}
         </div>

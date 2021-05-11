@@ -1,22 +1,23 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-import fetchFromCMS, { getMedia } from '../../lib/service';
+import fetchFromCMS, { fetchOneFromCMS, fetchCategoriesFromCMS } from '../../lib/graphcmsService';
 import processMarkdown from '../../lib/processMarkdown';
 
 /** 
  * https://medium.com/swlh/lets-create-portfolio-app-with-next-js-strapi-headless-cms-and-bootstrap-5-fac7d9578bbd 
+ * https://github.com/GraphCMS/graphcms-examples/blob/master/with-nextjs/src/pages/products/%5Bslug%5D.js
  */
-const PortfolioItem = ({ destino }) => {
+const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
     return (
-        <Layout>
+        <Layout categories={categories}>
             <div className="row">
                 <div className="portfolio-image text-center mb-4">
                     <div className="col-md-12">
                         <Image
-                            src={getMedia(destino.image)}
-                            width={destino.image.width}
-                            height={destino.image.height}
+                            src={destino.image.url}
+                            width={destino.width ?? 800}
+                            height={destino.height ?? 600}
                         />
                     </div>
                 </div>
@@ -25,9 +26,12 @@ const PortfolioItem = ({ destino }) => {
                 <div className="portfolio-content">
                     <div className="col-md-12">
                         <div className="portfolio-headline text-center m-2">
-                            <h1>{destino.destino}</h1>
+                            <h1>{destino.name}</h1>
+                            <h2>{destino.longitude}</h2>
+                            <h2>{destino.latitude}</h2>
+                            <h2>{destino.duration}</h2>
                         </div>
-                        <div dangerouslySetInnerHTML={{ __html: destino.content }} />
+                        <div dangerouslySetInnerHTML={{ __html: destino.description }} />
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ const PortfolioItem = ({ destino }) => {
 };
 
 export async function getStaticPaths() {
-    const destinos = await fetchFromCMS('/destinos');
+    const destinos = await fetchFromCMS();
     return {
         paths: destinos.map(d => ({
             params: {
@@ -48,10 +52,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const destino = await fetchFromCMS(`/destinos?slug=${params.slug}`);
-    const content = await processMarkdown(destino[0]);
+    const destino = await fetchOneFromCMS({ params });
+    console.log('static props', destino);
+    const content = await processMarkdown(destino[0].description);
+
+    const categories = await fetchCategoriesFromCMS();
+    console.log('static props c', categories);
     return {
-        props: { destino: { ...destino[0], content: content } },
+        props: {
+            destino: { ...destino[0], description: content },
+            categories: categories,
+        },
         revalidate: 1,
     };
 }

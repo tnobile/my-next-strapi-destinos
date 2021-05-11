@@ -1,7 +1,7 @@
 const Navbar = () => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div className="container">
-            <a className="navbar-brand" href="#">My Portfolio</a>
+            <a className="navbar-brand" href="#">Desitnos</a>
             <button
                 className="navbar-toggler"
                 type="button"
