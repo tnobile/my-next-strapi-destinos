@@ -16,13 +16,18 @@ export default function Home({ destinos, categories }) {
   console.log("data", destinos);
   return (
     <Layout categories={categories}>
+      <div className='jumbotron jumbotron-fluid'>
+        <div className='container text-center m-1'>
+          <h1 className='display-2'>Lucerne in 🇨🇭</h1>
+          <p1 className='lead'>Excursion ideas/itinesaries</p1></div>
+      </div>
       <div className="entries">
         <div className="row justify-content-start ">
           {destinos && destinos.map(d => (
             <div className="col-md-6">
-              <div className="entry mb-3">
+              <div className="mb-3">
                 <Link as={`/articles/${d.slug}`} href={`/articles/${d.slug}`} key={d.slug}>
-                  <div className="main-image">
+                  <div className="">
                     <Image
                       src={d.image.url}
                       width={600}
