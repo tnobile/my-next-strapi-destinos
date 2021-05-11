@@ -12,7 +12,7 @@ const PortfolioItem = ({ destino, categories }) => {
     return (
         <Layout categories={categories}>
             <div className="row">
-                <div className="portfolio-image text-center mb-4">
+                <div className="portfolio-image text-center mb-1">
                     <div className="col-md-12">
                         <Image
                             src={destino.image.url}
@@ -27,9 +27,9 @@ const PortfolioItem = ({ destino, categories }) => {
                     <div className="col-md-12">
                         <div className="portfolio-headline text-center m-2">
                             <h1>{destino.name}</h1>
-                            <h2>{destino.longitude}</h2>
-                            <h2>{destino.latitude}</h2>
-                            <h2>{destino.duration}</h2>
+                            <h2>{destino.location.longitude}</h2>
+                            <h2>{destino.location.latitude}</h2>
+                            <h2>{destino.duration}h</h2>
                         </div>
                         <div dangerouslySetInnerHTML={{ __html: destino.description }} />
                     </div>

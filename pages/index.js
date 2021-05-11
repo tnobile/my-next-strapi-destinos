@@ -34,7 +34,7 @@ export default function Home({ destinos, categories }) {
                       height={400}
                       alt={d.Destino}
                     />
-                    <h1 className='text-center'>{d.Destino}</h1>
+                    <h3 className='text-center'>{d.name}</h3>
                   </div>
                 </Link>
               </div>
