@@ -11,6 +11,7 @@ const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
     return (
         <Layout categories={categories}>
+            <h1 className='display-3 text-center'>{destino.name}</h1>
             <div className="row">
                 <div className="portfolio-image text-center mb-1">
                     <div className="col-md-12">
@@ -26,7 +27,6 @@ const PortfolioItem = ({ destino, categories }) => {
                 <div className="portfolio-content">
                     <div className="col-md-12">
                         <div className="portfolio-headline text-center m-2">
-                            <h1>{destino.name}</h1>
                             <h2>{destino.location[0].longitude}</h2>
                             <h2>{destino.location[0].latitude}</h2>
                             <h2>{destino.duration}h</h2>
