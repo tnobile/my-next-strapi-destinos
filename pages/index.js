@@ -21,23 +21,6 @@ export default function Home({ destinos, categories }) {
           <h1 className='display-2'>Lucerne in 🇨🇭</h1>
           <p1 className='lead'>Excursion ideas/itinesaries</p1></div>
       </div>
-      <div className="entries">
-        <div className="row justify-content-start ">
-          {destinos && destinos.map(d => (
-            <div className="col-md-6">
-              <div className="mb-3">
-                <Image
-                  src={d.image.url}
-                  width={600}
-                  height={400}
-                  alt={d.Destino}
-                />
-                <h3 className='text-center'>{d.name}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </Layout>
   );
 }
