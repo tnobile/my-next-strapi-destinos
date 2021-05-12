@@ -8,7 +8,7 @@ import processMarkdown from '../../lib/processMarkdown';
  * https://github.com/GraphCMS/graphcms-examples/blob/master/with-nextjs/src/pages/products/%5Bslug%5D.js
  */
 const PortfolioItem = ({ destino, categories }) => {
-    console.log('dest', destino);
+    //console.log('dest', destino);
     return (
         <Layout categories={categories}>
             <h1 className='display-3 m-1 text-center'>{destino.name}</h1>
