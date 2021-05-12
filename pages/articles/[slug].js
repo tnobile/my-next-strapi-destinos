@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-import fetchFromCMS, { fetchOneFromCMS, fetchCategoriesFromCMS } from '../../lib/graphcmsService';
+import fetchFromCMS, { fetchOneFromCMS } from '../../lib/graphcms';
 import processMarkdown from '../../lib/processMarkdown';
 
 /** 
@@ -11,8 +11,8 @@ const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
     return (
         <Layout categories={categories}>
-            <h1 className='display-3 text-center'>{destino.name}</h1>
-            <div className="row">
+            <h1 className='display-3 m-1 text-center'>{destino.name}</h1>
+            <div className="row m-1">
                 <div className="portfolio-image text-center mb-1">
                     <div className="col-md-12">
                         <Image
@@ -24,15 +24,13 @@ const PortfolioItem = ({ destino, categories }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="portfolio-content">
-                    <div className="col-md-12">
-                        <div className="portfolio-headline text-center m-2">
-                            <h2>{destino.location[0].longitude}</h2>
-                            <h2>{destino.location[0].latitude}</h2>
-                            <h2>{destino.duration}h</h2>
-                        </div>
-                        <div dangerouslySetInnerHTML={{ __html: destino.description }} />
+                <div className="col-md-12">
+                    <div className="portfolio-headline text-center m-2">
+                        <h3>{destino.location[0].longitude}</h3>
+                        <h3>{destino.location[0].latitude}</h3>
+                        <h3>{destino.duration}h</h3>
                     </div>
+                    <div dangerouslySetInnerHTML={{ __html: destino.description }} />
                 </div>
             </div>
         </Layout>
@@ -40,7 +38,7 @@ const PortfolioItem = ({ destino, categories }) => {
 };
 
 export async function getStaticPaths() {
-    const destinos = await fetchFromCMS();
+    const [destinos] = await fetchFromCMS();
     return {
         paths: destinos.map(d => ({
             params: {
@@ -52,18 +50,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const destino = await fetchOneFromCMS({ params });
+    const [destino, categories] = await fetchOneFromCMS({ params });
     console.log('static props', destino);
     const content = await processMarkdown(destino[0].description);
 
-    const categories = await fetchCategoriesFromCMS();
-    console.log('static props c', categories);
     return {
         props: {
             destino: { ...destino[0], description: content },
             categories: categories,
-        },
-        revalidate: 1,
+        }
     };
 }
 

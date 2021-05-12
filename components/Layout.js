@@ -3,7 +3,7 @@ import Nav from "./Nav";
 const Layout = ({ children, categories }) => (
     <dvi>
         <Nav categories={categories}/>
-        <div className='main-container container'>
+        <div className='container'>
             {children}
         </div>
     </dvi>
