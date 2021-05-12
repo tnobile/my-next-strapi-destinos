@@ -20,7 +20,7 @@ export default function Home({ destinos, categories }) {
           <p1 className='lead'>ideas de excursiones e itinerarios y cosas suizas</p1></div>
       </div>
       <div className="row justify-content-start ">
-        <Destinos destinos={destinos} />
+        <Destinos destinos={destinos.sort((a,b)=> 0.5 - Math.random())} />
       </div>
     </Layout>
   );
