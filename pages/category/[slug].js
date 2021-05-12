@@ -32,16 +32,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const [destinos, categories] = await fetchFromCMS();
-    console.log('static props slug', params.slug);
-    const filtered = destinos.filter(d => d.category === params.slug);
-    console.log('static props in props', filtered);
-    //const content = await processMarkdown(destino[0].description);
-
+    const [destinos, categories] = await fetchFromCMS(params.slug);
     return {
         props: {
             category: params.slug,
-            destinos: filtered,
+            destinos,
             categories,
         },
         //revalidate: 60,

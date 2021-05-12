@@ -51,7 +51,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const [destino, categories] = await fetchOneFromCMS({ params });
-    console.log('static props', destino);
     const content = await processMarkdown(destino[0].description);
 
     return {
