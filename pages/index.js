@@ -8,7 +8,7 @@ export async function getStaticProps() {
   const categories = await fetchCategoriesFromCMS();
   return {
     props: { destinos, categories },
-    //revalidate: 30,
+    revalidate: 60,
   };
 }
 
