@@ -58,7 +58,8 @@ export async function getStaticProps({ params }) {
         props: {
             destino: { ...destino[0], description: content },
             categories: categories,
-        }
+        },
+        //revalidate: 60,
     };
 }
 
