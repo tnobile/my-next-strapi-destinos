@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-import fetchFromCMS, { fetchOneFromCMS } from '../../lib/graphcms';
+import fetchFromCMS, { fetchOneFromCMS } from '../../lib/graphcms-apollo';
 import processMarkdown from '../../lib/processMarkdown';
 import MyMapContainer from '../../components/MyMapContainer';
 

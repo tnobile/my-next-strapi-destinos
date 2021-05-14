@@ -1,7 +1,7 @@
 import Destinos from "../../components/Destinos";
 import Layout from "../../components/Layout";
 
-import fetchFromCMS, { fetchCategories, fetchWithCategory } from '../../lib/graphcms'
+import fetchFromCMS, { fetchCategories, fetchWithCategory } from '../../lib/graphcms-apollo'
 
 const CategoryItem = ({ category, destinos, categories }) => {
     return (
