@@ -26,7 +26,8 @@ const PortfolioItem = ({ destino, categories }) => {
             </div>
             <div className="row">
                 <div className="col-12">
-                    <div dangerouslySetInnerHTML={{ __html: destino.description }} />
+                    <div className="m-2" dangerouslySetInnerHTML={{ __html: destino.description }} />
+                    <div className="p-2 border border-primary border-2" dangerouslySetInnerHTML={{ __html: destino.content }} />
                 </div>
             </div>
             <div className="row">
@@ -50,11 +51,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const [destino, categories] = await fetchOneFromCMS({ params });
-    const content = await processMarkdown(destino[0].description);
+    const content = await processMarkdown(destino[0].content);
+    const desc = await processMarkdown(destino[0].description);
 
     return {
         props: {
-            destino: { ...destino[0], description: content },
+            destino: { ...destino[0], description: desc, content: content },
             categories: categories,
         },
         //revalidate: 60,
