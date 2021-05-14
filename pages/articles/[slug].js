@@ -2,6 +2,7 @@ import Layout from '../../components/Layout';
 import Image from 'next/image';
 import fetchFromCMS, { fetchOneFromCMS } from '../../lib/graphcms';
 import processMarkdown from '../../lib/processMarkdown';
+import MyMapContainer from '../../components/MyMapContainer';
 
 /** 
  * https://medium.com/swlh/lets-create-portfolio-app-with-next-js-strapi-headless-cms-and-bootstrap-5-fac7d9578bbd 
@@ -24,12 +25,8 @@ const PortfolioItem = ({ destino, categories }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-12">
-                    <div className="portfolio-headline text-center m-2">
-                        <h3>{destino.location[0].longitude}</h3>
-                        <h3>{destino.location[0].latitude}</h3>
-                        <h3>{destino.duration}h</h3>
-                    </div>
+                <div className="col-12">
+                    <MyMapContainer destino={destino}/>
                     <div dangerouslySetInnerHTML={{ __html: destino.description }} />
                 </div>
             </div>
