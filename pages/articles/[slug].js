@@ -26,9 +26,11 @@ const PortfolioItem = ({ destino, categories }) => {
             </div>
             <div className="row">
                 <div className="col-12">
-                    <MyMapContainer destino={destino}/>
                     <div dangerouslySetInnerHTML={{ __html: destino.description }} />
                 </div>
+            </div>
+            <div className="row">
+                <MyMapContainer destino={destino} />
             </div>
         </Layout>
     );
