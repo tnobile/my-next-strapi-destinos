@@ -26,6 +26,7 @@ const PortfolioItem = ({ destino, categories }) => {
             </div>
             <div className="row">
                 <div className="col-12">
+                    {`${destino.name} is in ${destino.region}`}
                     <div className="m-2" dangerouslySetInnerHTML={{ __html: destino.description }} />
                     <div className="p-2 border border-primary border-2" dangerouslySetInnerHTML={{ __html: destino.content }} />
                 </div>
