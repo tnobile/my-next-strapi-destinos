@@ -5,7 +5,7 @@ const Destinos = ({ destinos }) => {
         destinos && destinos.map(d =>
             <div className="col-md-3">
                 <div className="mb-3">
-                    <Destino d={d} />
+                    <Destino d={d}  key={d.key}/>
                 </div>
             </div>
         )

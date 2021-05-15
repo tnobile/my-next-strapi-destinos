@@ -1,11 +1,13 @@
 import Layout from '../components/Layout';
 import fetchFromCMS from '../lib/graphcms-apollo';
 import Destinos from '../components/Destinos';
+import { initializeApollo } from "../lib/apollo-client"
 
 export async function getStaticProps() {
+  const apolloClient = initializeApollo();
   const [destinos, categories] = await fetchFromCMS();
   return {
-    props: { destinos, categories },
+    props: { destinos, categories,  initialApolloState: apolloClient.cache.extract()},
     //revalidate: 60,
   };
 }
