@@ -8,7 +8,7 @@ export async function getStaticProps() {
   const [destinos, categories] = await fetchFromCMS();
   return {
     props: { destinos, categories,  initialApolloState: apolloClient.cache.extract()},
-    //revalidate: 60,
+    revalidate: 1800,
   };
 }
 

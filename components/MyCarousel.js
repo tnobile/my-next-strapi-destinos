@@ -25,5 +25,4 @@ const MyCarousel = ({ destino, width, height }) => {
     )
 }
 
-
 export default MyCarousel;
