@@ -21,7 +21,7 @@ export default function Home({ destinos, categories }) {
           <h1 className='display-3'>❤️ Los Destinos desde Lucerna en🇨🇭❤️</h1>
           <p className='lead'>ideas de excursiones e itinerarios y cosas suizas</p></div>
       </div>
-      <div className="row justify-content-start ">
+      <div className="row justify-content-start text-center ">
         <Destinos destinos={[...destinos].sort((a,b)=> 0.5 - Math.random())} />
       </div>
     </Layout>
