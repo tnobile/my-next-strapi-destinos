@@ -11,7 +11,7 @@ import MyCarousel from '../../components/MyCarousel';
  */
 
 const getWidth = w => w ?? 1000;
-const getHeight = h => h ?? 750;
+const getHeight = h => h ?? 600;
 
 const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
@@ -20,8 +20,8 @@ const PortfolioItem = ({ destino, categories }) => {
             <div className="row">
                 <h1 className='display-3 text-center'>{destino.name} {destino.region ? ` in ${destino.region}` : ''}</h1>
             </div>
-            <div className="row">
-                <MyCarousel destino={destino} />
+            <div className="row text-center">
+                <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
             </div>
             <div className="row">
                 <div className="display-4 text-center" dangerouslySetInnerHTML={{ __html: destino.description }} />
