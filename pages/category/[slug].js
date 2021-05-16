@@ -10,7 +10,7 @@ const CategoryItem = ({ category, destinos, categories }) => {
                     <h1 className='display-2'>❤️🇨🇭 {category} 🇨🇭❤️</h1>
                 </div>
                 <div className="row justify-content-start ">
-                    <Destinos destinos={destinos} />
+                    <Destinos destinos={[...destinos].sort((a, b) => a.name.localeCompare(b.name))}/>
                 </div>
             </div>
         </Layout>
