@@ -24,7 +24,7 @@ const PortfolioItem = ({ destino, categories }) => {
                 <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
             </div>
             <div className="row">
-                <div className="display-4 text-center" dangerouslySetInnerHTML={{ __html: destino.description }} />
+                <div className="text-center display-6" dangerouslySetInnerHTML={{ __html: destino.description }} />
                 <div className="p-2 border border-primary border-2" dangerouslySetInnerHTML={{ __html: destino.content }} />
             </div>
             <div className="row">
