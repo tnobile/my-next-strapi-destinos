@@ -1,9 +1,9 @@
 import Layout from '../../components/Layout';
-import Image from 'next/image';
 import fetchFromCMS, { fetchOneFromCMS } from '../../lib/graphcms-apollo';
 import processMarkdown from '../../lib/processMarkdown';
 import MyMapContainer from '../../components/MyMapContainer';
 import MyCarousel from '../../components/MyCarousel';
+import Image from 'next/image'
 
 /** 
  * https://medium.com/swlh/lets-create-portfolio-app-with-next-js-strapi-headless-cms-and-bootstrap-5-fac7d9578bbd 
@@ -23,9 +23,18 @@ const PortfolioItem = ({ destino, categories }) => {
             <div className="row text-center">
                 <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
             </div>
-            <div className="row">
-                <div className="text-center display-6" dangerouslySetInnerHTML={{ __html: destino.description }} />
-                <div className="p-2 border border-primary border-2" dangerouslySetInnerHTML={{ __html: destino.content }} />
+            <div className="row m-3">
+                <div className="text-center display-6 m-2" dangerouslySetInnerHTML={{ __html: destino.description }} />
+                <div className="border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />
+            </div>
+            <div className="row justify-content-start m-2">
+                {destino.more && [...destino.more].sort((a, b) => 0, 5 - Math.random()).map(d =>
+                    <div className="col-md-3">
+                        <div className="mb-2">
+                            <Image src={d.url} width={300} height={200} alt={d.url} />
+                        </div>
+                    </div>
+                )}
             </div>
             <div className="row">
                 <MyMapContainer destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
