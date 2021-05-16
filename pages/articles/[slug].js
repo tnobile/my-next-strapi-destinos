@@ -25,7 +25,7 @@ const PortfolioItem = ({ destino, categories }) => {
             </div>
             <div className="row m-3">
                 <div className="text-center display-6 m-2" dangerouslySetInnerHTML={{ __html: destino.description }} />
-                <div className="border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />
+                {destino.content && <div className="border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
             </div>
             <div className="row justify-content-start m-2">
                 {destino.more && [...destino.more].sort((a, b) => 0, 5 - Math.random()).map(d =>

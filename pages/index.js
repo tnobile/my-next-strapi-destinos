@@ -18,7 +18,7 @@ export default function Home({ destinos, categories }) {
     <Layout categories={categories}>
       <div className='jumbotron jumbotron-fluid'>
         <div className='container text-center m-1'>
-          <h1 className='display-2'>❤️ Los Destinos desde Lucerna en🇨🇭❤️</h1>
+          <h1 className='display-3'>❤️ Los Destinos desde Lucerna en🇨🇭❤️</h1>
           <p className='lead'>ideas de excursiones e itinerarios y cosas suizas</p></div>
       </div>
       <div className="row justify-content-start ">
