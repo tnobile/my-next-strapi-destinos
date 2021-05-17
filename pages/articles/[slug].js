@@ -65,7 +65,7 @@ export async function getStaticProps({ params }) {
             destino: { ...destino[0], description: desc, content: content },
             categories: categories,
         },
-        //revalidate: 60,
+        revalidate: 1800,
     };
 }
 
