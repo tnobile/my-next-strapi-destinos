@@ -10,7 +10,7 @@ const CategoryItem = ({ category, destinos, categories }) => {
                     <h1 className='display-2'>❤️🇨🇭 {category} 🇨🇭❤️</h1>
                 </div>
                 <div className="row justify-content-start ">
-                    <Destinos destinos={[...destinos].sort((a, b) => a.name.localeCompare(b.name))}/>
+                    <Destinos destinos={[...destinos].sort((a, b) => a.name.localeCompare(b.name))} />
                 </div>
             </div>
         </Layout>
@@ -38,7 +38,7 @@ export async function getStaticProps({ params }) {
             destinos,
             categories,
         },
-        //revalidate: 60,
+        revalidate: 1800,
     };
 }
 
