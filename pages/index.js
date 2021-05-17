@@ -17,7 +17,7 @@ export default function Home({ destinos, categories }) {
   return (
     <Layout categories={categories}>
       <div className='jumbotron jumbotron-fluid'>
-        <div className='container text-center m-1'>
+        <div className='text-center m-1'>
           <h1 className='display-3'>❤️ Los Destinos desde Lucerna en🇨🇭❤️</h1>
           <p className='lead'>ideas de excursiones e itinerarios y cosas suizas</p></div>
       </div>
