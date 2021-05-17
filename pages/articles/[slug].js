@@ -31,7 +31,7 @@ const PortfolioItem = ({ destino, categories }) => {
                 {destino.more && [...destino.more].sort((a, b) => 0, 5 - Math.random()).map(d =>
                     <div className="col-md-3">
                         <div className="mb-2">
-                            <Image src={d.url} width={300} height={200} alt={d.url} />
+                            <Image src={d.url} width={300} height={200} alt={d.url} key={d.id} />
                         </div>
                     </div>
                 )}
