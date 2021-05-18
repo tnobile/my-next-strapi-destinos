@@ -4,7 +4,7 @@ import Link from "next/link";
 const Nav = ({ categories }) => {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-ight bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <Link href="/">
                         <a className="nav-link">HOME</a>
@@ -25,6 +25,9 @@ const Nav = ({ categories }) => {
                             })}
                         </ul>
                     </div>
+                    <Link href="/">
+                        <a className="nav-link">ABOUT</a>
+                    </Link>
                 </div>
             </nav>
         </div>
