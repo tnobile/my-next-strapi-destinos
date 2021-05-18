@@ -11,7 +11,7 @@ const Destino = ({ width, height, d }) => {
                     height={height ?? 200}
                     alt={d.Destino} />
             </Link>
-            <h4 className='text-center'>{d.name}</h4>
+            <div className='h6 text-center'>{d.name}</div>
         </div>
     )
 }
