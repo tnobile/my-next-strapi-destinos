@@ -14,12 +14,15 @@ export async function getStaticProps() {
   };
 }
 
+const sort = (list) => [...list].sort((a, b) => 0.5 - Math.random());
+
 export default function Home({ destinos, categories }) {
-  const [list, setList] = useState(destinos);
+  const [list, setList] = useState(sort(destinos));
+  const delay = 6000;
 
   useInterval(() => {
-    setList([...list].sort((a, b) => 0.5 - Math.random()));
-  }, 6000)
+    setList(sort(list));
+  }, delay)
 
   return (
     <Layout categories={categories}>

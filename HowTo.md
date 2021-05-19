@@ -1,3 +1,11 @@
+# About this photo blog...
+
+Tech stack
+
+* nextjs.org by Vercel
+* [http://graphcms.com](GraphCMS)
+* Hosting in vercel.com
+
 # rendering
 
 * getStaticProps (Static Generation): Fetch data at build time.
