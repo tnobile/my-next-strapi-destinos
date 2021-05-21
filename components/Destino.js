@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Destino = ({ width, height, d }) => {
     return (
         <div>
-            <Link as={`/articles/${d.slug}`} href={`/articles/${d.slug}`} key={d.slug}>
+            <Link as={`/articles/${d.slug}`} href={`/articles/${d.slug}`}>
                 <Image
                     src={d.image.url}
                     width={width ?? 300}

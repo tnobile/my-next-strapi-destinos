@@ -1,7 +1,5 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
-//import 'bootstrap/dist/js/bootstrap.bundle.js';
-//import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
 
 import Head from "next/head"
 import { ApolloProvider } from "@apollo/client";
