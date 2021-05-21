@@ -25,8 +25,8 @@ const Nav = ({ categories }) => {
                             })}
                         </ul>
                     </div>
-                    <Link href="/">
-                        <a className="nav-link">About</a>
+                    <Link href="/about">
+                        <a className="nav-link">ABOUT</a>
                     </Link>
                 </div>
             </nav>
