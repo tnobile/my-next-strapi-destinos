@@ -28,7 +28,7 @@ const PortfolioItem = ({ destino, categories }) => {
                 {destino.content && <div className="border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
             </div>
             <div className="row justify-content-start m-2">
-                {destino.more && [...destino.more].sort((a, b) => 0, 5 - Math.random()).map(d =>
+                {destino.more && [...destino.more].sort((a, b) => 0.5 - Math.random()).map(d =>
                     <div className="col-md-3">
                         <div className="mb-2">
                             <Image src={d.url} width={300} height={200} alt={d.url} key={d.id} />
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
                 slug: d.slug,
             },
         })),
-        fallback: true,
+        fallback: false,
     };
 }
 
