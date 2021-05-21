@@ -9,7 +9,7 @@ const Destino = ({ width, height, d }) => {
                     src={d.image.url}
                     width={width ?? 300}
                     height={height ?? 200}
-                    alt={d.id} />
+                    alt="" />
             </Link>
             <div className='h6 text-center'>{d.name}</div>
         </div>

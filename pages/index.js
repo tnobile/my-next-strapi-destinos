@@ -4,6 +4,7 @@ import Destinos from '../components/Destinos';
 import { initializeApollo } from "../lib/apollo-client"
 import { useInterval } from '../hooks/useInterval'
 import { useState } from 'react';
+import SearchTerm from '../components/SearchTerm/SearchTerm';
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo();
@@ -40,8 +41,13 @@ export default function Home({ destinos, categories }) {
       <div className='jumbotron jumbotron-fluid'>
         <div className='text-center m-1'>
           <h1 className='display-3'>❤️ Los Destinos desde Lucerna en🇨🇭 ❤️</h1>
-          <div className='lead p-2'>ideas de excursiones e itinerarios y cosas suizas
-          <input className="px-1 mx-2" placeholder='search' />
+          <div className="row">
+            <div className='col'>
+              <div className='lead text-right' >ideas de excursiones e itinerarios y cosas suizas</div>
+            </div>
+            <div className='col'>
+              <SearchTerm />
+            </div>
           </div>
         </div>
       </div>
