@@ -43,7 +43,7 @@ export default function Home({ destinos, categories }) {
           <h1 className='display-3'>❤️ Los Destinos desde Lucerna en🇨🇭 ❤️</h1>
           <div className="row">
             <div className='col'>
-              <div className='lead text-right' >ideas de excursiones e itinerarios y cosas suizas</div>
+              <div className='lead text-right m-1 text-warning' >Alugnas ideas de excursiones e itinerarios y cosas suizas</div>
             </div>
             <div className='col'>
               <SearchTerm />
