@@ -26,7 +26,7 @@ export async function getStaticPaths() {
                 slug: c,
             },
         })),
-        fallback: false,
+        fallback: true,
     };
 }
 
