@@ -14,14 +14,25 @@ export async function getStaticProps() {
   };
 }
 
-const sort = (list) => [...list].sort((a, b) => 0.5 - Math.random());
+const sortList = (list) => [...list].sort((a, b) => 0.5 - Math.random());
+
+const swapList = (list) => {
+  let a = Math.floor(Math.random() * list.length);
+  let b = Math.floor(Math.random() * list.length);
+  //console.log(a, b);
+  const tmp = [...list];
+  tmp[a] = list[b];
+  tmp[b] = list[a];
+  return tmp;
+}
 
 export default function Home({ destinos, categories }) {
-  const [list, setList] = useState(sort(destinos));
-  const delay = 60000;
+  const [list, setList] = useState(sortList(destinos));
+  const delay = 30000;
 
   useInterval(() => {
-    setList(sort(list));
+    setList(sortList(list));
+    //setList(swapList(list));
   }, delay)
 
   return (
