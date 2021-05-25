@@ -17,14 +17,20 @@ const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
     return (
         <Layout categories={categories}>
-            <div className='display-4 text-center'>{destino.name} {destino.region ? ` in ${destino.region}` : ''}</div>
             <div className="container">
-                <div className="row text-center">
-                    <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+                <div className='row'>
+                    <div className='col display-4 text-center'>{destino.name} {destino.region ? ` in ${destino.region}` : ''}</div>
+                </div>
+                <div className="row">
+                    <div className="col text-center">
+                        <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+                    </div>
                 </div>
                 <div className="row m-3">
-                    <div className="text-center display-6 m-2" dangerouslySetInnerHTML={{ __html: destino.description }} />
-                    {destino.content && <div className="border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
+                    <div className="col text-center display-4 m-1" dangerouslySetInnerHTML={{ __html: destino.description }} />
+                </div>
+                <div className="row m-3">
+                    {destino.content && <div className="col border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
                 </div>
                 <div className="row justify-content-start m-2">
                     {destino.more && [...destino.more].sort((a, b) => 0.5 - Math.random()).map(d =>
@@ -36,7 +42,7 @@ const PortfolioItem = ({ destino, categories }) => {
                     )}
                 </div>
                 <div className="row">
-                    <MyMapContainer destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+                    <MyMapContainer className="col" destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
                 </div>
             </div>
         </Layout >
