@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 
 const MyNav = ({ categories }) => {
     return (
-        <Navbar bg="light" expand="lg" className='navbar-light bg-light'>
+        <Navbar bg="light" expand="lg" variant="primary">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
