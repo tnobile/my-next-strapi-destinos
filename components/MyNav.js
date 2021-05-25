@@ -7,12 +7,12 @@ import Nav from 'react-bootstrap/Nav'
 const MyNav = ({ categories }) => {
     return (
         <Navbar bg="light" expand="lg" variant="primary">
+            <Link href="/" >
+                <a className="nav-link">HOME</a>
+            </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Link href="/" >
-                        <a className="nav-link">HOME</a>
-                    </Link>
                     {categories &&
                         <NavDropdown title="CATEGORY" id="basic-nav-dropdown">
                             {[...categories].sort((a, b) => a.localeCompare(b)).map((category) =>
