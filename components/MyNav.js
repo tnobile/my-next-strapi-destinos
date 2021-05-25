@@ -16,9 +16,11 @@ const MyNav = ({ categories }) => {
                     {categories &&
                         <NavDropdown title="CATEGORY" id="basic-nav-dropdown">
                             {[...categories].sort((a, b) => a.localeCompare(b)).map((category) =>
-                                <Link as={`/category/${category}`} href="/category/[id]">
-                                    <a className="nav-link">{category}</a>
-                                </Link>)}
+                                <NavDropdown.Item>
+                                    <Link as={`/category/${category}`} href="/category/[id]">
+                                        <a className="nav-link">{category}</a>
+                                    </Link>
+                                </NavDropdown.Item>)}
                         </NavDropdown>
                     }
                 </Nav>
