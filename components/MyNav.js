@@ -13,7 +13,7 @@ const MyNav = ({ categories }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    {categories &&
+                    {categories && categories.length > 0 &&
                         <NavDropdown title="CATEGORY" id="basic-nav-dropdown">
                             {[...categories].sort((a, b) => a.localeCompare(b)).map((category) =>
                                 <NavDropdown.Item>

@@ -6,7 +6,7 @@ const CategoryItem = ({ category, destinos, categories }) => {
     return (
         <Layout categories={categories}>
             <div className='jumbotron jumbotron-fluid'>
-                <div className='container text-center m-1'>
+                <div className='container-fluid text-center m-1'>
                     <h1 className='display-2'>❤️🇨🇭 {category} 🇨🇭❤️</h1>
                 </div>
             </div>

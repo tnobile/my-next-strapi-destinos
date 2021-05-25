@@ -51,13 +51,15 @@ export default function Home({ destinos, categories }) {
       <div className='jumbotron jumbotron-fluid' style={{"background-color":"white"}}>
         <div className='text-center m-1'>
           <h1 className='display-4'>❤️ Los Destinos desde Lucerna🇨🇭 ❤️</h1>
-          <div className="row">
-            <div className='col-xs-12 col-md-6'>
-              <div className='lead text-center m-1 text-danger' >Alugnas ideas de excursiones e itinerarios y cosas suizas</div>
+          <div className="row mx-5" >
+            <div className='col-xs-12 col-md-2'/>
+            <div className='col-xs-12 col-md-4'>
+              <div className='lead text-center m-2 text-danger' >Alugnas ideas de excursiones e itinerarios y cosas suizas</div>
             </div>
-            <div className='col-xs-12 col-md-6'>
+            <div className='col-xs-12 col-md-4'>
               <SearchTerm />
             </div>
+            <div className='col-xs-12 col-md-2'/>
           </div>
         </div>
       </div>

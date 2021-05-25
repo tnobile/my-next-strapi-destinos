@@ -3,7 +3,7 @@ import MyNav from "./MyNav";
 const Layout = ({ children, categories }) => (
     <div> 
         <MyNav categories={categories}/>
-        <div className='container'>
+        <div className='container-fluid'>
             {children}
         </div>
     </div>
