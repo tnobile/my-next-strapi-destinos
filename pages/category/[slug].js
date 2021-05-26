@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import fetchFromCMS from '../../lib/graphcms-apollo'
 import { useDispatch } from 'react-redux'
 import { setSelected } from '../../features/category/categorySlice'
+import { setSearchTerm } from '../../features/searchTerm/searchTermSlice'
 import { useEffect } from "react"
 
 const CategoryItem = ({ category, destinos, categories }) => {
@@ -10,7 +11,9 @@ const CategoryItem = ({ category, destinos, categories }) => {
 
     useEffect(() => {
         dispatch(setSelected(category));
+        dispatch(setSearchTerm(''));
     }, [category])
+
     return (
         <Layout categories={categories}>
             <div className='jumbotron jumbotron-fluid'>
