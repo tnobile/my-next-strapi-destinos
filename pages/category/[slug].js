@@ -12,7 +12,7 @@ const CategoryItem = ({ category, destinos, categories }) => {
     useEffect(() => {
         dispatch(setSelected(category));
         dispatch(setSearchTerm(''));
-    }, [])
+    }, [category])
 
     return (
         <Layout categories={categories}>
