@@ -4,8 +4,8 @@ import Destinos from '../components/Destinos';
 import { initializeApollo } from "../lib/apollo-client"
 import { useInterval } from '../hooks/useInterval'
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
-import { loadDestinos } from '../features/allDestinos/allDestinosSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadDestinos, selectFilteredAllDestinos } from '../features/allDestinos/allDestinosSlice'
 import { setCategories } from '../features/category/categorySlice'
 import SearchTerm from '../components/SearchTerm/SearchTerm';
 
@@ -32,6 +32,7 @@ const swapList = (list) => {
 
 export default function Home({ destinos, categories }) {
   const [list, setList] = useState(sortList(destinos));
+  const filtered = useSelector(selectFilteredAllDestinos);
   const delay = 30000;
   const dispatch = useDispatch();
 
@@ -44,7 +45,7 @@ export default function Home({ destinos, categories }) {
     dispatch(loadDestinos(list));
     //console.log("useEffect categories", categories);
     dispatch(setCategories(categories));
-  }, [list, categories])
+  }, []) //only once  as in componentDidMount
 
   return (
     <Layout categories={categories} >
@@ -64,7 +65,7 @@ export default function Home({ destinos, categories }) {
         </div>
       </div>
       <div className="row justify-content-start text-center ">
-        <Destinos destinos={list} />
+        <Destinos destinos={filtered} />
       </div>
     </Layout>
   );

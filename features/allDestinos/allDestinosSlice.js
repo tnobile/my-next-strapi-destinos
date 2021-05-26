@@ -21,8 +21,10 @@ export function loadDestinos(destinos) {
 
 export const selectAllDestinos = (state) => state.allDestinos;
 
+const doesContain = (a, term) => a.name.toLowerCase().includes(term) || a.category.includes(term);
+
 export const selectFilteredAllDestinos = (state) => {
     const allDestinos = selectAllDestinos(state);
     const searchTerm = selectSearchTerm(state);
-    return allDestinos.filter(d => searchTerm && searchTerm!=='' ? d.name.toLowerCase().includes(searchTerm) : true)
+    return allDestinos.filter(d => searchTerm && searchTerm!=='' ? doesContain(d, searchTerm) : true)
 };

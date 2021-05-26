@@ -1,13 +1,8 @@
 import Destino from "./Destino"
-import { useSelector } from "react-redux"
-
-const doesContain = (a, term) => a.name.toLowerCase().includes(term) || a.category.includes(term);
 
 const Destinos = ({ destinos }) => {
-    const searchTerm = useSelector(s => s.searchTerm);
-    console.log('searchTerm', searchTerm)
     return (
-        destinos && destinos.filter(d => searchTerm && searchTerm !== '' ? doesContain(d, searchTerm) : true).map((d, i) =>
+        destinos && destinos.map((d, i) =>
             i < 3 ?
                 < div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" key={d.id}>
                     <Destino d={d} width={600} height={400} />
