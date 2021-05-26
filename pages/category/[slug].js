@@ -1,8 +1,16 @@
 import Destinos from "../../components/Destinos";
 import Layout from "../../components/Layout";
 import fetchFromCMS from '../../lib/graphcms-apollo'
+import { useDispatch } from 'react-redux'
+import { setSelected } from '../../features/category/categorySlice'
+import { useEffect } from "react"
 
 const CategoryItem = ({ category, destinos, categories }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setSelected(category));
+    }, [category])
     return (
         <Layout categories={categories}>
             <div className='jumbotron jumbotron-fluid'>

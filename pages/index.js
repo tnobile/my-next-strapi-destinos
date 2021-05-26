@@ -42,7 +42,7 @@ export default function Home({ destinos, categories }) {
 
   useEffect(() => {
     dispatch(loadDestinos(list));
-    console.log("useEffect categories", categories);
+    //console.log("useEffect categories", categories);
     dispatch(setCategories(categories));
   }, [list, categories])
 
