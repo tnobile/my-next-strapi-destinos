@@ -16,3 +16,6 @@ const category = createSlice({
 
 export const { setCategories, clearCategories, setSelected } = category.actions;
 export default category.reducer;
+
+
+export const categorySelected = (state) => state.categories.selected;
