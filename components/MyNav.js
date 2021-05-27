@@ -10,7 +10,7 @@ const MyNav = ({ categories }) => {
             <Link href="/" >
                 <a className="nav-link">HOME</a>
             </Link>
-            <Navbar.Toggle bg="transparent" variant="primary" aria-controls="basic-navbar-nav" className="navbarToggler"/>
+            <Navbar.Toggle bg="transparent" variant="primary" aria-controls="basic-navbar-nav" className="navbarToggler" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     {categories && categories.length > 0 &&
@@ -23,6 +23,11 @@ const MyNav = ({ categories }) => {
                                 </NavDropdown.Item>)}
                         </NavDropdown>
                     }
+                    <NavDropdown title="SEASON">
+                        {["spring", "summer", "autumn", "winter"].map(s =>
+                            <NavDropdown.Item key={s}>{s}</NavDropdown.Item>
+                        )}
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
             <Link href="/about">

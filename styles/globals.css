@@ -25,7 +25,8 @@ a {
 }
 
 .navbar-toggler {
-  background-color: brown;
+  background-color: lightgray;
+  color: blue;
 }
 
 .navbar {
