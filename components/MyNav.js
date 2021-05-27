@@ -10,7 +10,7 @@ const MyNav = ({ categories }) => {
             <Link href="/" >
                 <a className="nav-link">HOME</a>
             </Link>
-            <Navbar.Toggle className="navbar-dark" aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle bg="transparent" variant="primary" aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     {categories && categories.length > 0 &&
