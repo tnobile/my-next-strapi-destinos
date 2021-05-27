@@ -17,34 +17,36 @@ const PortfolioItem = ({ destino, categories }) => {
     console.log('dest', destino);
     return (
         <Layout categories={categories}>
-            <div className="container">
-                <div className='row'>
-                    <div className='col display-4 text-center'>{destino.name} {destino.region ? ` in ${destino.region}` : ''}</div>
-                </div>
-                <div className="row">
-                    <div className="col text-center">
-                        <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+            {destino?.name &&
+                <div className="container">
+                    <div className='row'>
+                        <div className='col display-4 text-center'>{destino.name} {destino.region ? ` in ${destino.region}` : ''}</div>
+                    </div>
+                    <div className="row">
+                        <div className="col text-center">
+                            <MyCarousel destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+                        </div>
+                    </div>
+                    <div className="row m-3">
+                        <div className="col text-center display-4 m-1" dangerouslySetInnerHTML={{ __html: destino.description }} />
+                    </div>
+                    <div className="row m-3">
+                        {destino.content && <div className="col border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
+                    </div>
+                    <div className="row justify-content-start m-2">
+                        {destino.more && [...destino.more].sort((a, b) => 0.5 - Math.random()).map(d =>
+                            <div className="col-md-3" key={d.id}>
+                                <div className="mb-1">
+                                    <Image src={d.url} width={300} height={200} alt='' />
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="row">
+                        <MyMapContainer className="col" destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
                     </div>
                 </div>
-                <div className="row m-3">
-                    <div className="col text-center display-4 m-1" dangerouslySetInnerHTML={{ __html: destino.description }} />
-                </div>
-                <div className="row m-3">
-                    {destino.content && <div className="col border border-primary border-2 p-3" dangerouslySetInnerHTML={{ __html: destino.content }} />}
-                </div>
-                <div className="row justify-content-start m-2">
-                    {destino.more && [...destino.more].sort((a, b) => 0.5 - Math.random()).map(d =>
-                        <div className="col-md-3" key={d.id}>
-                            <div className="mb-1">
-                                <Image src={d.url} width={300} height={200} alt='' />
-                            </div>
-                        </div>
-                    )}
-                </div>
-                <div className="row">
-                    <MyMapContainer className="col" destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
-                </div>
-            </div>
+            }
         </Layout >
     );
 };
@@ -57,21 +59,21 @@ export async function getStaticPaths() {
                 slug: d.slug,
             },
         })),
-        fallback: false,
+        fallback: true,
     };
 }
 
 export async function getStaticProps({ params }) {
     const [destino, categories] = await fetchOneFromCMS({ params });
-    const content = await processMarkdown(destino[0].content);
-    const desc = await processMarkdown(destino[0].description);
+    const content = await processMarkdown(destino[0]?.content);
+    const desc = await processMarkdown(destino[0]?.description);
 
     return {
         props: {
             destino: { ...destino[0], description: desc, content: content },
             categories: categories,
         },
-        revalidate: 600,
+        revalidate: 1800,
     };
 }
 

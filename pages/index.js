@@ -49,7 +49,7 @@ export default function Home({ destinos, categories }) {
 
   return (
     <Layout categories={categories} >
-      <div className='jumbotron jumbotron-fluid' style={{"background-color":"white"}}>
+      <div className='jumbotron jumbotron-fluid' style={{"backgroundColor":"white"}}>
         <div className='text-center m-1'>
           <h1 className='display-4'>❤️ Los Destinos desde Lucerna🇨🇭 ❤️</h1>
           <div className="row mx-5" >
