@@ -59,7 +59,7 @@ export async function getStaticPaths() {
                 slug: d.slug,
             },
         })),
-        fallback: true,
+        fallback: true, // true, or blocking, either way enable server side rendering
     };
 }
 
