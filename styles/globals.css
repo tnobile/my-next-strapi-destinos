@@ -23,3 +23,11 @@ a {
   padding-bottom: 1px!important;
   padding-top: 1px!important;
 }
+
+.navbar-toggler {
+  background-color: brown;
+}
+
+.navbar {
+  background-color: blueviolet;
+}
