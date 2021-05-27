@@ -23,11 +23,13 @@ const MyNav = ({ categories }) => {
                                 </NavDropdown.Item>)}
                         </NavDropdown>
                     }
-                    <NavDropdown title="SEASON">
-                        {["spring", "summer", "autumn", "winter"].map(s =>
-                            <NavDropdown.Item key={s}>{s}</NavDropdown.Item>
-                        )}
-                    </NavDropdown>
+                    {categories && categories.length > 0 &&
+                        <NavDropdown title="SEASON">
+                            {["spring", "summer", "autumn", "winter"].map(s =>
+                                <NavDropdown.Item key={s}>{s}</NavDropdown.Item>
+                            )}
+                        </NavDropdown>
+                    }
                 </Nav>
             </Navbar.Collapse>
             <Link href="/about">
