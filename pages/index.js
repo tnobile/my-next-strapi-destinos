@@ -49,23 +49,21 @@ export default function Home({ destinos, categories }) {
 
   return (
     <Layout categories={categories} >
-      <div className='jumbotron jumbotron-fluid'>
-        <div className='container'>
-          <div className='text-center m-1'>
-            <h1 className='display-4'>❤️ Los Destinos desde Lucerna🇨🇭 ❤️</h1>
-            <div className="row mx-5" >
-              <div className='col-xs-12 col-md-2' />
-              <div className='col-xs-12 col-md-4'>
-                <div className='lead text-center m-2 text-danger' >Alugnas ideas de excursiones e itinerarios y cosas🇨🇭</div>
-              </div>
-              <div className='col-xs-12 col-md-4'>
-                <SearchTerm />
-              </div>
-              <div className='col-xs-12 col-md-1 text-left mt-2 pl-0'>
-                ({filtered.length})
-              </div>
-              <div className='col-xs-12 col-md-1' />
+      <div className='jumbotron jumbotron-fluid' style={{ "backgroundColor": "white" }}>
+        <div className='text-center m-1'>
+          <h1 className='display-4'>❤️ Los Destinos desde Lucerna🇨🇭 ❤️</h1>
+          <div className="row mx-5" >
+            <div className='col-xs-12 col-md-2' />
+            <div className='col-xs-12 col-md-4'>
+              <div className='lead text-center m-2 text-danger' >Alugnas ideas de excursiones e itinerarios y cosas🇨🇭</div>
             </div>
+            <div className='col-xs-12 col-md-4'>
+              <SearchTerm />
+            </div>
+            <div className='col-xs-12 col-md-1 text-left mt-2 pl-0'>
+              ({filtered.length})
+              </div>
+            <div className='col-xs-12 col-md-1' />
           </div>
         </div>
       </div>

@@ -13,34 +13,15 @@ a {
   box-sizing: border-box;
 }
 
+.container {
+  background-color: white;
+}
+
 .jumbotron {
+  background-color: white!important;
   border: none;
-  padding-top: 59vh!important;
-  position: relative;
-  height: 80vh;
-  background: white!important;
-}
-
-.jumbotron .container {
-  position: relative;
-  z-index: 2;
-  color: black;
-  background:white;
-}
-
-.jumbotron:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('/images/switzerland-political-map.jpeg');
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: blur(1.0px);
+  padding-bottom: 1px!important;
+  padding-top: 1px!important;
 }
 
 .navbar-toggler {
