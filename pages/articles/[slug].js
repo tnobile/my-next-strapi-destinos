@@ -72,6 +72,9 @@ export async function getStaticProps({ params }) {
         props: {
             destino: { ...destino[0], description: desc, content: content },
             categories: categories,
+            initialReduxState:{
+                lastUpdate: Date.now(),
+            }
         },
         revalidate: 1800,
     };

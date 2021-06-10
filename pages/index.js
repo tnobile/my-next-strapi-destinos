@@ -55,7 +55,7 @@ export default function Home({ destinos, categories }) {
           <div className="row mx-5" >
             <div className='col-xs-12 col-md-2' />
             <div className='col-xs-12 col-md-4'>
-              <div className='lead text-center m-2 text-danger' >Alugnas ideas de excursiones e itinerarios y cosas🇨🇭</div>
+              <div className='lead text-center m-2 text-danger' >ideas de excursiones e itinerarios🇨🇭</div>
             </div>
             <div className='col-xs-12 col-md-4'>
               <SearchTerm />
