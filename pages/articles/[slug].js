@@ -43,7 +43,9 @@ const PortfolioItem = ({ destino, categories }) => {
                         )}
                     </div>
                     <div className="row">
+                        <div className="col"/>
                         <MyMapContainer className="col" destino={destino} width={getWidth(destino.width)} height={getHeight(destino.height)} />
+                        <div className="col"/>
                     </div>
                 </div>
             }
